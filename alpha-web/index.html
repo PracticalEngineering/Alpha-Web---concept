@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>alpha-web · The Growing Web of Knowledge</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>&%23945;</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="topbar">
+  <div class="brand" title="alpha-web – it has a beginning, but no end">
+    <span class="alpha">α</span><span class="brandname">alpha-web</span>
+  </div>
+  <div class="topstats">
+    <span id="xp-pill" class="pill" title="Research points">✦ <b id="xp-value">0</b> XP</span>
+    <span id="done-pill" class="pill" title="Topics completed">🔬 <b id="done-value">0</b>/<span id="total-value">0</span></span>
+  </div>
+  <div class="topbuttons">
+    <button id="btn-review" class="btn btn-ghost" title="Refresh what you've learned with a random sample">↻ Review</button>
+    <button id="btn-check" class="btn btn-ghost" title="Already know things? Prove it and unlock topics!">⚡ Quick Check</button>
+    <button id="btn-random" class="btn btn-ghost" title="Jump to a random topic">🎲</button>
+    <button id="btn-help" class="btn btn-ghost" title="Legend & help">?</button>
+  </div>
+</header>
+
+<main id="stage">
+  <!-- Knowledge web -->
+  <div id="graph-wrap">
+    <svg id="graph" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="search-box">
+      <input id="search-input" type="text" placeholder="Find a topic…" autocomplete="off" spellcheck="false">
+      <div id="search-results" class="hidden"></div>
+    </div>
+
+    <div id="zoom-controls">
+      <button id="zoom-in" title="Zoom in">+</button>
+      <button id="zoom-out" title="Zoom out">−</button>
+      <button id="zoom-home" title="Back to the beginning (α)">α</button>
+    </div>
+    <div id="legend" class="hidden">
+      <h3>The Web of Knowledge</h3>
+      <div class="leg-row"><span class="leg-dot leg-mystery"></span> Still hidden – explore your way there</div>
+      <div class="leg-row"><span class="leg-dot leg-ready"></span> Ready to explore</div>
+      <div class="leg-row"><span class="leg-dot leg-progress"></span> In progress – partly explored</div>
+      <div class="leg-row"><span class="leg-dot leg-done"></span> Completed</div>
+      <div class="leg-row"><span class="leg-dot leg-gold"></span> Golden – mastered along with everything built on it</div>
+      <div class="leg-row"><span class="leg-dot leg-frontier"></span> Research frontier – the web keeps growing here</div>
+      <div id="legend-subjects"></div>
+      <p class="leg-note">The centre is the beginning (α) – every ring outward is one grade higher, all the way to the research frontier.<br>
+      Drag = move · Mouse wheel = zoom · Click a bubble = discover it.<br>
+      You choose where to explore. Hints are free – thinking is what counts!</p>
+      <button class="btn btn-small" id="legend-close">Got it</button>
+    </div>
+  </div>
+
+  <!-- Topic panel (right) -->
+  <aside id="panel" class="hidden">
+    <button id="panel-close" title="Close">×</button>
+    <div id="panel-body"></div>
+  </aside>
+</main>
+
+<!-- Lesson overlay -->
+<div id="lesson" class="hidden">
+  <div id="lesson-card">
+    <div id="lesson-head">
+      <button id="lesson-quit" title="Leave the lesson">×</button>
+      <div id="lesson-title"></div>
+      <div id="lesson-dots"></div>
+    </div>
+    <div id="lesson-body">
+      <div id="q-text"></div>
+      <div id="q-answers"></div>
+      <div id="hint-area"></div>
+      <div id="feedback" class="hidden"></div>
+    </div>
+    <div id="lesson-foot">
+      <button id="btn-hint" class="btn btn-ghost">💡 Show a hint</button>
+      <button id="btn-submit" class="btn btn-primary">Check</button>
+      <button id="btn-next" class="btn btn-primary hidden">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Completion / info overlay -->
+<div id="modal" class="hidden">
+  <div id="modal-card"></div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script src="data/curriculum.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
